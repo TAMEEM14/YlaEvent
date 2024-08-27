@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ylaevent/shared/components/components.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class ChangePasswordScreen extends StatelessWidget {
       body:Form(
         key: formKey ,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding:  EdgeInsets.all(20.0.r),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -31,7 +32,7 @@ class ChangePasswordScreen extends StatelessWidget {
                       },
                     prefix: Icons.lock_outline
                   ),
-                  const SizedBox(height: 15,),
+                   SizedBox(height: 15.h,),
                   defaultformfild(
                       control:newPasswordController ,
                       labeltext:'New password' ,
@@ -42,7 +43,7 @@ class ChangePasswordScreen extends StatelessWidget {
                       },
                       prefix: Icons.password_outlined
                   ),
-                  const SizedBox(height: 15,),
+                   SizedBox(height: 15.h,),
                   defaultformfild(
                       control:reNewPasswordController ,
                       labeltext:'Re-type new password' ,
@@ -53,7 +54,7 @@ class ChangePasswordScreen extends StatelessWidget {
                       },
                       prefix: Icons.password_outlined
                   ),
-                  const SizedBox(height: 15,),
+                   SizedBox(height: 15.h,),
                   defaultbutton(
                     context: context,
                       function: (){
@@ -62,8 +63,8 @@ class ChangePasswordScreen extends StatelessWidget {
                               SnackBar(
                                 behavior: SnackBarBehavior.floating,
                                 shape: RoundedRectangleBorder(
-                                  side: BorderSide(color: Colors.green, width: 1),
-                                  borderRadius: BorderRadius.circular(24),
+                                  side: BorderSide(color: Colors.green, width: 1.w),
+                                  borderRadius: BorderRadius.circular(24.r),
                                 ),
                             content: Center(
                               child: Text(
@@ -71,7 +72,7 @@ class ChangePasswordScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'Somar',
                                   color: Colors.white,
-                                  fontSize: 20
+                                  fontSize: 20.sp
                               ),),
                             ),
                             backgroundColor: Colors.green,

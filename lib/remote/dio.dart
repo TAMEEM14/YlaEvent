@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:ylaevent/shared/components/constans.dart';
 
 class DioHelper{
   static Dio? dio;
@@ -9,20 +11,30 @@ class DioHelper{
   static init(){
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://5a9b-169-150-218-132.ngrok-free.app/api/yla-event/end-user/',
+        baseUrl: 'http://192.168.209.139:8000/api/yla-event/',
         receiveDataWhenStatusError: true,
        
       ),
     );
+
+    dio?.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      compact: true,
+      maxWidth: 90,
+    ));
   }
 
   static Future<Response> getData ({
     required String url,
-    String lang = 'ar_sy',
   }) async{
     dio?.options.headers = {
       'Accept' : 'application/json',
-      'Accept-Language' : '$lang',
+      'Accept-Language' : 'eng',
+      'Authorization': 'Bearer $token',
     };
     return await dio!.get( 
       url ,
@@ -36,7 +48,8 @@ static Future<Response> postData({
 }) async {
   dio?.options.headers = {
     'Accept' : 'application/json',
-    'Accept-Language' : 'eng'
+    'Accept-Language' : 'eng',
+    'Authorization': 'Bearer $token',
   };
 
   return  dio!.post(
@@ -62,15 +75,12 @@ static Future<Response> postData({
 
   static Future<Response> putData({
     required String url,
-    //Map<String, dynamic>? query,
     required Map<String, dynamic> data,
-    String? token,
-    String lang = 'en',
   }) async {
     dio?.options?.headers = {
-      'Authorization': token,
+      'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
-      'lang': lang,
+      'lang': 'eng',
     };
 
     return await dio!.put(

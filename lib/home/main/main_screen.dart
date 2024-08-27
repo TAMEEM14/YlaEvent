@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ylaevent/home/main/main_cubit.dart';
 import 'package:ylaevent/home/main/states.dart';
+import 'package:ylaevent/modules/login/loginScreen.dart';
+import 'package:ylaevent/shared/components/components.dart';
+import 'package:ylaevent/shared/components/constans.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -14,7 +18,10 @@ class MainScreen extends StatelessWidget {
         var model = MainCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: Text('YalaEvent'),
+            title: const Text('YalaEvent'),
+            actions: [
+              if(token == null) TextButton(onPressed: (){navigateTo(context, LogInScreen());}, child: const Text('SignIn'))
+            ],
           ),
           body: model.BottomScreen[model.currentIndex],
           bottomNavigationBar:NavigationBar(
@@ -22,21 +29,17 @@ class MainScreen extends StatelessWidget {
               model.ChangBottom(index);
             },
             selectedIndex: model.currentIndex,
-            destinations: const <Widget>[
+            destinations:  <Widget>[
               NavigationDestination(
-                icon: Icon(Icons.home),
+                icon: ImageIcon(const AssetImage('assets/home.png'),size: 25.r,),
                 label: 'Home',
               ),
               NavigationDestination(
-                icon: Icon(Icons.star),
-                label: 'Interested',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.shopping_cart_rounded),
+                icon: ImageIcon(const AssetImage('assets/ticket (2).png'),size: 30.r,),
                 label: 'Pocket',
               ),
               NavigationDestination(
-                icon: Icon(Icons.person),
+                icon: ImageIcon(const AssetImage('assets/profile.png'),size: 24.r,),
                 label: 'Profile',
               ),
             ],

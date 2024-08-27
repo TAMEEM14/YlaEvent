@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "284573386438",
+    "project_id": "yla-event-37f85",
+    "storage_bucket": "yla-event-37f85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284573386438:android:757354065b2e9794a4f9c7",
+        "android_client_info": {
+          "package_name": "com.example.ylaevent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXYosVB7leKLXr7hyUZ27TaiyZ8r7-9XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

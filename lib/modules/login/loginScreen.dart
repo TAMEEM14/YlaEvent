@@ -1,6 +1,8 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ylaevent/home/home_screen.dart';
+import 'package:ylaevent/home/main/main_screen.dart';
 import 'package:ylaevent/modules/forget_password/enter_email/enterEmailScreen.dart';
 import 'package:ylaevent/modules/login/cubit/cubit.dart';
 import 'package:ylaevent/modules/login/cubit/states.dart';
@@ -25,8 +27,12 @@ class LogInScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
-        listener: (context, State) {},
-        builder: (context, State) {
+        listener: (context, state) {
+          if(state is LoginSuccessState){
+            navigateAndFinish(context, MainScreen());
+          }
+        },
+        builder: (context, state) {
           return Scaffold(
             body: Form(
               key: formKey,

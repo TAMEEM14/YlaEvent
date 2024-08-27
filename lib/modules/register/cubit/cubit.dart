@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:ylaevent/api/firbebase_api.dart';
 import 'package:ylaevent/modules/register/cubit/states.dart';
 import 'package:ylaevent/remote/dio.dart';
 import 'package:ylaevent/remote/end_points.dart';
@@ -29,6 +30,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
         'phone_number': phone,
         'confirm_password': confirmPassword,
         'birth_day': birthday,
+        'device_token' : fCMToken
       },
     ).then((value) {
       print(value.data);

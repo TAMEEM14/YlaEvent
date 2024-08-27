@@ -6,20 +6,16 @@ const PRODUCT_DETIALS = 'product';
 
 const AGENT = 'agent';
 
-const ANNOUNCEMENT = 'announcement';
+const REGISTER = 'end-user/register';
 
-const LOGIN = 'sign-in';
+const SININ = 'end-user/sign-in';
 
-const REGISTER = 'register';
+const VERIFY_ACCOUNT = 'end-user/verify-account';
 
-const SININ = 'sign-in';
+const EMAIL_VERIFICATION_SEND = 'end-user/email-verification-send';
 
-const VERIFY_ACCOUNT = 'verify-account';
+const PASSWORD_VERIFICATION_SEND = 'end-user/password-verification-send';
 
-const EMAIL_VERIFICATION_SEND = 'email-verification-send';
+const VERIFY_NEW_PASSWORD = 'end-user/verify-new-password';
 
-const PASSWORD_VERIFICATION_SEND = 'password-verification-send';
-
-const VERIFY_NEW_PASSWORD = 'verify-new-password';
-
-const RESET_PASSWORD= 'reset-password';
+const RESET_PASSWORD= 'end-user/reset-password';
